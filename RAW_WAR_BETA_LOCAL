@@ -1,1 +1,17 @@
 
+RAW_WAR_BETA
+
+ZWECK:
+- Archiv für Fehler, Drift und kaputte Zustände
+- Speichert nur IST, niemals SOLL
+- Keine Gesetze, keine Regeln, nur Zustand
+
+REGELN:
+- KI arbeitet hier auf eigene Gefahr
+- Mensch arbeitet hier auf eigene Gefahr
+- WÜRFEL bleibt Admin, aber schreibt NICHT automatisch
+
+NUTZUNG:
+- Vergleich mit /core (SOLL)
+- Wiederherstellung bei Drift
+- Analyse von Fehlern
