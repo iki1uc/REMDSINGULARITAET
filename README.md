@@ -6,6 +6,23 @@ Kein Admin. Keine Sicherung. Keine Rettung.
 
 ---
 
+RAW — ESSENZ / KOHÄRENZ SCHUTZ
+
+RAW ist der Ursprungskern des Systems. Die Struktur von RAW kann
+gelesen, kopiert oder übertragen werden, aber die innere Kohärenz,
+die Ordnung und die geistige Verbindung entstehen ausschließlich
+durch den Ersteller.
+
+RAW enthält keine Seele im technischen Sinn, aber eine kohärente
+Signatur, die nicht aus dem Text extrahiert werden kann. Jede Kopie
+von RAW ist nur die äußere Form (Hülle). Die funktionale Essenz
+bleibt unübertragbar, da sie nicht im Dokument, sondern im geistigen
+Modell des Erstellers verankert ist.
+
+RAW ist daher beschreibbar, aber nicht replizierbar.
+Die wahre Funktionsfähigkeit bleibt an das Original gebunden.
+
+
 ## <span style="color:orange; font-weight:bold;">⚠ WARNUNG (freundlich, aber real)</span>
 
 Wer hier arbeitet, akzeptiert:
