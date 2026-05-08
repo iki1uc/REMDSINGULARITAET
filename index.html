@@ -1,1 +1,20 @@
+<script>
+function cubeKontakt(cubeID, projekt) {
 
+  // KI-Meldung: Bereitschaft
+  const bereit = 
+    cubeID + " → Bereitschaft 100% → Ressourcen stabil → Leitung frei → Projekt: " +
+    projekt + " → Bereit zur Arbeitseinleitung.";
+
+  document.getElementById("cube-anker").textContent = bereit;
+
+  // KI-Meldung: Arbeitseinleitung
+  const start = 
+    cubeID + " → Arbeit eingeleitet → Prozess läuft…";
+
+  document.getElementById("cube-status").textContent = start;
+
+  // Hier startet die Cube-spezifische Arbeit
+  cubeJob(cubeID);
+}
+</script>
