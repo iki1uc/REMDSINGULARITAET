@@ -1,4 +1,3 @@
-
 function rawwarKontakt() {
   const box = document.getElementById("cube-status");
   const anker = document.getElementById("cube-anker");
