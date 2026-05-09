@@ -30,3 +30,79 @@
 <script src="cube-core.js"></script>
 <script src="verhandlung-core.js"></script>
 <script src="rawwar-core.js"></script>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>RAWWAR Chill Mode</title>
+
+<style>
+/* Cube Layout */
+.cube-mask {
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
+  grid-template-rows: repeat(3, 40px);
+  gap: 4px;
+  margin: 20px;
+}
+
+.cube-mask .cell {
+  border-radius: 6px;
+  box-shadow: 0 0 6px #000 inset;
+}
+
+/* RAWWAR – roher Puls */
+.cube1 .cell {
+  background: #440000;
+  border: 1px solid #aa0000;
+  box-shadow: 0 0 4px #220000 inset;
+}
+
+/* Puls-Effekt */
+.rawwar-pulse .cell {
+  background: #ff0000 !important;
+  box-shadow: 0 0 12px #ff0000;
+  transition: 0.2s;
+}
+</style>
+</head>
+
+<body>
+
+<div id="cube-anker">–</div>
+<div id="cube-status">–</div>
+
+<div id="cube1" class="cube-mask cube1">
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+</div>
+
+<script>
+// RAWWAR Kontakt
+function rawwarKontakt() {
+  const box = document.getElementById("cube-status");
+  const anker = document.getElementById("cube-anker");
+
+  anker.textContent = "CUBE_1 → RAW_WAR aktiviert.";
+  box.textContent = "RAW_WAR → Reaktion läuft…";
+
+  rawwarPulse();
+}
+
+// Puls-Effekt
+function rawwarPulse() {
+  const cube = document.getElementById("cube1");
+  cube.classList.add("rawwar-pulse");
+
+  setTimeout(() => cube.classList.remove("rawwar-pulse"), 600);
+}
+
+// Klick aktiviert RAWWAR
+document.getElementById("cube1").addEventListener("click", () => {
+  rawwarKontakt();
+});
+</script>
+
+</body>
+</html>
