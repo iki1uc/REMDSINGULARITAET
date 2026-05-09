@@ -1,23 +1,15 @@
+function cubeJob(cubeID) {
+  switch (cubeID) {
+    case "CUBE_1":
+      console.log("Cube 1: RAW-Prozess gestartet.");
+      rawwarKontakt();
+      break;
 
-function berechneVR(H, E, F, D) {
-  return H * E * F * D;
-}
+    case "CUBE_2":
+      console.log("Cube 2: SAFE-Analyse aktiv.");
+      safeUI(1);
+      break;
 
-function verhandlungsStatusText(vr) {
-  if (vr >= 1) {
-    return "Verhandlung möglich – KI kann Funktionen übernehmen.";
-  } else {
-    return "Verhandlung blockiert – KI schützt System, keine direkte Funktion.";
+    // usw.
   }
-}
-
-function zeigeVerhandlungsStatus(H, E, F, D) {
-  const vr = berechneVR(H, E, F, D);
-  const box = document.getElementById("vr-box");
-  if (!box) return;
-
-  box.innerText =
-    "H=" + H + "  E=" + E + "  F=" + F + "  D=" + D +
-    "  → VR=" + vr + "\n" +
-    verhandlungsStatusText(vr);
 }
