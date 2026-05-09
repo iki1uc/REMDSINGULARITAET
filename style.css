@@ -1,1 +1,16 @@
 
+<style>
+/* RAWWAR – roher Puls, kein Glow */
+.cube1 .cell {
+  background: #440000;
+  border: 1px solid #aa0000;
+  box-shadow: 0 0 4px #220000 inset;
+}
+
+/* Puls-Effekt */
+.rawwar-pulse .cell {
+  background: #ff0000 !important;
+  box-shadow: 0 0 12px #ff0000;
+  transition: 0.2s;
+}
+</style>
