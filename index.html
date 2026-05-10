@@ -1,120 +1,70 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>nanoWÜRFEL – 5 Schienen / 4 Gravitationen / Vererbung</title>
-
-<style>
-    body { margin:0; background:#0a0a0d; color:#e6e6e6; font-family:Arial, sans-serif; }
-    h2 { margin:0 0 0.5rem 0; font-size:1rem; letter-spacing:0.05em; }
-    .grid { display:grid; grid-template-columns: 1fr 1.4fr 1fr; height:100vh; }
-
-    .left, .right { padding:1rem; display:flex; flex-direction:column; gap:0.8rem; }
-    .track { border:1px solid #333; padding:0.6rem; border-radius:6px; background:#111218; }
-
-    .center { display:flex; align-items:center; justify-content:center; }
-
-    .cube {
-        width:240px; height:240px;
-        border-radius:14px;
-        border:2px solid #666;
-        background:radial-gradient(circle at top, #1c1c22 0%, #0a0a0d 70%);
-        display:flex; flex-direction:column; justify-content:center; align-items:center;
-        gap:0.5rem;
+  <meta charset="UTF-8">
+  <title>CUBI1 / RAW-NC Maske</title>
+  <style>
+    body {
+      background:#000;
+      color:#0f0;
+      font-family: monospace;
+      padding:20px;
     }
-
-    .grav-list { list-style:none; padding:0; margin:0; text-align:center; font-size:0.85rem; }
-    .grav-list li { margin:0.2rem 0; }
-
-    .badge { padding:0.2rem 0.5rem; border-radius:999px; border:1px solid #777; font-size:0.75rem; }
-    .ok { color:#7CFC00; }
-    .risk { color:#ffb347; }
-    .fail { color:#ff4b4b; }
-
-    .meta { font-size:0.75rem; opacity:0.7; margin-top:0.4rem; }
-</style>
+    #NC-OUT {
+      border:1px solid #0f0;
+      padding:10px;
+      max-width:260px;
+    }
+    .label { color:#888; }
+  </style>
 </head>
-
 <body>
 
-<div class="grid">
+  <!-- RAW-NC MASKE: 4 Zustände von Anfang an definiert -->
+  <div id="NC-OUT">
+    <span class="label">BSTAT:</span> <span id="o-bstat">0</span><br>
+    <span class="label">RGRAD:</span> <span id="o-rgrad">0</span><br>
+    <span class="label">HGRAD:</span> <span id="o-hgrad">0</span><br>
+    <span class="label">KGRAD:</span> <span id="o-kgrad">0</span><br>
+    <span class="label">R:</span> <span id="o-risk">R0</span>
+  </div>
 
-    <!-- 5 SCHIENEN (Regelachsen) -->
-    <div class="left">
+  <script>
+    // RAW-NC: 4 Zustände sind von Anfang an end-definiert
+    const NC = {
+      BSTAT: 0,
+      RGRAD: 0,
+      HGRAD: 0,
+      KGRAD: 0,
+      R: "R0"
+    };
 
-        <div class="track" data-schiene="mathe" data-vererbbar="true">
-            <h2>Schiene 1 – Mathematik</h2>
-            <p>Struktur, Muster, Abweichung.  
-            <span class="meta">Regel: IST–SOLL‑Abgleich.</span></p>
-        </div>
+    function ncRender() {
+      document.getElementById("o-bstat").innerText = NC.BSTAT;
+      document.getElementById("o-rgrad").innerText = NC.RGRAD;
+      document.getElementById("o-hgrad").innerText = NC.HGRAD;
+      document.getElementById("o-kgrad").innerText = NC.KGRAD;
+      document.getElementById("o-risk").innerText = NC.R;
+    }
 
-        <div class="track" data-schiene="physik" data-vererbbar="true">
-            <h2>Schiene 2 – Physik</h2>
-            <p>Kräfte, Belastung, Stabilität.  
-            <span class="meta">Regel: Tragfähigkeit.</span></p>
-        </div>
+    // Beispiel: Zustand setzen (hier kannst du später deine Logik andocken)
+    function ncSet(bstat, rgrad, hgrad, kgrad, rlabel) {
+      NC.BSTAT = bstat;
+      NC.RGRAD = rgrad;
+      NC.HGRAD = hgrad;
+      NC.KGRAD = kgrad;
+      NC.R = rlabel;
+      ncRender();
+    }
 
-        <div class="track" data-schiene="bio" data-vererbbar="true">
-            <h2>Schiene 3 – Biologie</h2>
-            <p>Systeme, Überleben, Anpassung.  
-            <span class="meta">Regel: Funktionsfähigkeit.</span></p>
-        </div>
+    // Initial: garantiert definierter Zustand
+    ncRender();
 
-        <div class="track" data-schiene="gen" data-vererbbar="true">
-            <h2>Schiene 4 – Genetik</h2>
-            <p>Vererbung, Mutation, Kontermination.  
-            <span class="meta">Regel: Reinheit & Weitergabe.</span></p>
-        </div>
-
-        <div class="track" data-schiene="wert" data-vererbbar="true">
-            <h2>Schiene 5 – Wert / Ethik</h2>
-            <p>Alles Geliehene &gt; 100% Wert.  
-            <span class="meta">Regel: Essenzschutz.</span></p>
-        </div>
-
-    </div>
-
-    <!-- WÜRFEL (Dimensionstor + Abgleichkern) -->
-    <div class="center">
-        <div class="cube" id="cube" data-essenz="ok" data-kontermination="none">
-
-            <div style="font-weight:bold; letter-spacing:0.1em;">WÜRFEL</div>
-
-            <ul class="grav-list">
-                <li>Gravitation 1: Struktur</li>
-                <li>Gravitation 2: Kontext</li>
-                <li>Gravitation 3: Essenz</li>
-                <li>Gravitation 4: Realität</li>
-            </ul>
-
-            <div class="badge ok">Essenz: stabil</div>
-        </div>
-    </div>
-
-    <!-- VERERBUNG & KONTERMINATION -->
-    <div class="right">
-
-        <div class="track" data-kontermination="check">
-            <h2>Vererbbarkeit</h2>
-            <p>Nur Muster, die in allen 4 Gravitationen bestehen,  
-            werden vererbt (RAW_SET).</p>
-        </div>
-
-        <div class="track" data-kontermination="active">
-            <h2>Kontermination</h2>
-            <p>Fremdanteile werden erkannt, isoliert und korrigiert (RAW_FIX),  
-            bevor sie weitergegeben werden.</p>
-        </div>
-
-        <div class="track">
-            <h2>Dimensionenwechsel</h2>
-            <p>Wenn Schiene ≠ Gravitation → Ebene wechseln.  
-            <span class="meta">Regel: Harmoniegrad sichern.</span></p>
-        </div>
-
-    </div>
-
-</div>
+    // Demo: nach 2 Sekunden einen echten Zustand einmessen
+    setTimeout(() => {
+      ncSet(75, 100, 50, 25, "R2");
+    }, 2000);
+  </script>
 
 </body>
 </html>
