@@ -1,38 +1,48 @@
-export function getActiveState() {
+// --------------------------------------
+// NC-CORE – EINHEITLICHES 4/4 SYSTEM
+// --------------------------------------
+export function getActive() {
     const a = document.getElementById("NC-ANCHOR");
-    const active = a.dataset.active;
-    const raw = a.dataset["a" + active].split(",");
+    return parseInt(a.dataset.active);
+}
+
+export function getState(n = getActive()) {
+    const a = document.getElementById("NC-ANCHOR");
+    const raw = a.dataset["s" + n].split(",");
     return {
-        BSTAT: raw[0],
-        RGRAD: raw[1],
-        HGRAD: raw[2],
-        KGRAD: raw[3]
+        BSTAT: parseInt(raw[0]),
+        RGRAD: parseInt(raw[1]),
+        HGRAD: parseInt(raw[2]),
+        KGRAD: parseInt(raw[3])
     };
 }
 
 export function setState(n, bstat, rgrad, hgrad, kgrad) {
     const a = document.getElementById("NC-ANCHOR");
-    a.dataset["a" + n] = `${bstat},${rgrad},${hgrad},${kgrad}`;
+    a.dataset["s" + n] = `${bstat},${rgrad},${hgrad},${kgrad}`;
 }
 
-export function nextState() {
+export function next() {
     const a = document.getElementById("NC-ANCHOR");
     let n = parseInt(a.dataset.active);
     n = n === 4 ? 1 : n + 1;
     a.dataset.active = n;
-    renderNC();
+    return getState(n);
 }
 
-export function prevState() {
+export function prev() {
     const a = document.getElementById("NC-ANCHOR");
     let n = parseInt(a.dataset.active);
     n = n === 1 ? 4 : n - 1;
     a.dataset.active = n;
-    renderNC();
+    return getState(n);
 }
 
+// --------------------------------------
+// LIVE-RENDER FÜR index.html
+// --------------------------------------
 export function renderNC() {
-    const s = getActiveState();
+    const s = getState();
     document.getElementById("a-bstat").innerText = s.BSTAT;
     document.getElementById("a-rgrad").innerText = s.RGRAD;
     document.getElementById("a-hgrad").innerText = s.HGRAD;
