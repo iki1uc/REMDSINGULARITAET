@@ -1,6 +1,12 @@
-import { nextState, prevState } from "./RAWWARBETA.js";
+import { next, prev, renderNC } from "./RAW_WAR_BETA_LOCAL.js";
 
 document.addEventListener("keydown", e => {
-    if (e.key === "ArrowRight") nextState();
-    if (e.key === "ArrowLeft") prevState();
+    if (e.key === "ArrowRight") {
+        next();
+        renderNC();
+    }
+    if (e.key === "ArrowLeft") {
+        prev();
+        renderNC();
+    }
 });
