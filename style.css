@@ -87,11 +87,11 @@ h2 {
 /* -------------------------
    AMPel-Farben (R0–R4)
 -------------------------- */
-.r0 { color:#00ff00; }   /* CLEAR */
-.r1 { color:#aaff00; }   /* WATCH */
-.r2 { color:#ffaa00; }   /* HOLD */
-.r3 { color:#ff5500; }   /* RISK */
-.r4 { color:#ff0000; }   /* STOP */
+.r0 { color:#00ff00; }
+.r1 { color:#aaff00; }
+.r2 { color:#ffaa00; }
+.r3 { color:#ff5500; }
+.r4 { color:#ff0000; }
 
 /* -------------------------
    HUD (oben rechts)
@@ -108,15 +108,22 @@ h2 {
     z-index:9999;
 }
 
+/* HUD Glow */
+#NC-HUD.r0 { border-color:#00ff00; }
+#NC-HUD.r1 { border-color:#aaff00; }
+#NC-HUD.r2 { border-color:#ffaa00; }
+#NC-HUD.r3 { border-color:#ff5500; }
+#NC-HUD.r4 { border-color:#ff0000; }
+
 /* -------------------------
-   NC-Status Block (rechte Spalte)
+   NC-Status Block
 -------------------------- */
 #NC-OUT span {
     font-family:monospace;
 }
 
 /* -------------------------
-   Buttons für Interaktion
+   Buttons
 -------------------------- */
 button {
     background:#0f0;
@@ -131,4 +138,41 @@ button {
 
 button:hover {
     background:#9f9;
+}
+
+/* X4 Navigation Buttons */
+#btn-left, #btn-right {
+    width: 60px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#btn-left {
+    align-self: flex-start;
+}
+
+#btn-right {
+    align-self: flex-end;
+}
+
+/* RAW_WAR Pulse */
+.rawwar-pulse {
+    animation: pulse 0.6s ease-out;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1);   box-shadow: 0 0 0px #0f0; }
+    50%  { transform: scale(1.05); box-shadow: 0 0 20px #0f0; }
+    100% { transform: scale(1);   box-shadow: 0 0 0px #0f0; }
+}
+
+/* RAWWAR Screen */
+#RAWWAR-SCREEN {
+    background:#050509;
+    border:1px solid #333;
+    padding:10px;
+    font-family:monospace;
+    font-size:12px;
+    border-radius:6px;
+    white-space:pre;
 }
