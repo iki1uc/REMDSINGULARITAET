@@ -1,22 +1,19 @@
+import { getState, renderRawwar } from "./RAWWAR_CORE.js";
+
 function rawwarKontakt() {
   const box = document.getElementById("cube-status");
   const anker = document.getElementById("cube-anker");
 
   if (!box || !anker) return;
 
-  anker.textContent = "CUBE_1 → RAW_WAR aktiviert → ungefilterte Rückmeldung aktiv.";
-  box.textContent = "RAW_WAR → Reaktion läuft…";
+  const s = getState(); // ← aktueller RAWWAR-Zustand (1/4–4/4)
 
-  rawwarPulse();
-}
+  anker.textContent =
+    `CUBE_1 → RAW_WAR aktiv → Zustand ${s.IDX}/4`;
 
-function rawwarPulse() {
-  const cube = document.getElementById("cube1");
-  if (!cube) return;
+  box.textContent =
+    `RAW_WAR LIVE → B:${s.BSTAT} R:${s.RGRAD} H:${s.HGRAD} K:${s.KGRAD}`;
 
-  cube.classList.add("rawwar-pulse");
-
-  setTimeout(() => {
-    cube.classList.remove("rawwar-pulse");
-  }, 600);
+  renderRawwar(); // ← Screen aktualisieren
+  rawwarPulse();  // ← visueller Puls
 }
