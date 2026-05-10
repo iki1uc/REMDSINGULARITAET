@@ -1,53 +1,40 @@
-// -------------------------
-// RAW-NC ZUSTAND A (MODUS 1)
-// -------------------------
-export const NCA = {
-  BSTAT: 0,
-  RGRAD: 0,
-  HGRAD: 0,
-  KGRAD: 0,
-  R: "R0"
-};
+export function getActiveState() {
+    const a = document.getElementById("NC-ANCHOR");
+    const active = a.dataset.active;
+    const raw = a.dataset["a" + active].split(",");
+    return {
+        BSTAT: raw[0],
+        RGRAD: raw[1],
+        HGRAD: raw[2],
+        KGRAD: raw[3]
+    };
+}
 
-// -------------------------
-// RAW-NC ZUSTAND B (MODUS 2)
-// -------------------------
-export const NCB = {
-  PREAL: 0,
-  PVALID: 0,
-  PRISK: "R0"
-};
+export function setState(n, bstat, rgrad, hgrad, kgrad) {
+    const a = document.getElementById("NC-ANCHOR");
+    a.dataset["a" + n] = `${bstat},${rgrad},${hgrad},${kgrad}`;
+}
 
-// -------------------------
-// RENDER
-// -------------------------
+export function nextState() {
+    const a = document.getElementById("NC-ANCHOR");
+    let n = parseInt(a.dataset.active);
+    n = n === 4 ? 1 : n + 1;
+    a.dataset.active = n;
+    renderNC();
+}
+
+export function prevState() {
+    const a = document.getElementById("NC-ANCHOR");
+    let n = parseInt(a.dataset.active);
+    n = n === 1 ? 4 : n - 1;
+    a.dataset.active = n;
+    renderNC();
+}
+
 export function renderNC() {
-  document.getElementById("a-bstat").innerText = NCA.BSTAT;
-  document.getElementById("a-rgrad").innerText = NCA.RGRAD;
-  document.getElementById("a-hgrad").innerText = NCA.HGRAD;
-  document.getElementById("a-kgrad").innerText = NCA.KGRAD;
-  document.getElementById("a-risk").innerText = NCA.R;
-
-  document.getElementById("b-preal").innerText = NCB.PREAL;
-  document.getElementById("b-pvalid").innerText = NCB.PVALID;
-  document.getElementById("b-prisk").innerText = NCB.PRISK;
-}
-
-// -------------------------
-// SETTER
-// -------------------------
-export function setA(bstat, rgrad, hgrad, kgrad, rlabel) {
-  NCA.BSTAT = bstat;
-  NCA.RGRAD = rgrad;
-  NCA.HGRAD = hgrad;
-  NCA.KGRAD = kgrad;
-  NCA.R = rlabel;
-  renderNC();
-}
-
-export function setB(preal, pvalid, prisk) {
-  NCB.PREAL = preal;
-  NCB.PVALID = pvalid;
-  NCB.PRISK = prisk;
-  renderNC();
+    const s = getActiveState();
+    document.getElementById("a-bstat").innerText = s.BSTAT;
+    document.getElementById("a-rgrad").innerText = s.RGRAD;
+    document.getElementById("a-hgrad").innerText = s.HGRAD;
+    document.getElementById("a-kgrad").innerText = s.KGRAD;
 }
