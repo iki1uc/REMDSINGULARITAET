@@ -1,15 +1,6 @@
-function cubeJob(cubeID) {
-  switch (cubeID) {
-    case "CUBE_1":
-      console.log("Cube 1: RAW-Prozess gestartet.");
-      rawwarKontakt();
-      break;
+import { setA, setB } from "./RAWWARBETA.js";
 
-    case "CUBE_2":
-      console.log("Cube 2: SAFE-Analyse aktiv.");
-      safeUI(1);
-      break;
-
-    // usw.
-  }
-}
+document.addEventListener("keydown", e => {
+  if (e.key === "1") setA(100, 80, 60, 40, "R1");
+  if (e.key === "2") setB(90, 70, "R2");
+});
