@@ -1,32 +1,115 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>nanoWÜRFEL – RAW-NC Fusion</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>nanoWÜRFEL – RAW-NC Fusion</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- … dein gesamtes Layout … -->
+<div class="grid">
 
-<div class="track" id="NC-OUT">
-    <h2>NC‑Status</h2>
+  <!-- 5 SCHIENEN -->
+  <div class="left">
 
-    <p><span class="meta">Modus A</span><br>
-    BSTAT: <span id="a-bstat">0</span><br>
-    RGRAD: <span id="a-rgrad">0</span><br>
-    HGRAD: <span id="a-hgrad">0</span><br>
-    KGRAD: <span id="a-kgrad">0</span><br>
-    R: <span id="a-risk">R0</span></p>
+    <div class="track">
+      <h2>Schiene 1 – Mathematik</h2>
+      <p>Struktur, Muster, Abweichung.<br>
+      <span class="meta">Regel: IST–SOLL‑Abgleich.</span></p>
+    </div>
 
-    <p><span class="meta">Modus B</span><br>
-    P‑REAL: <span id="b-preal">0</span><br>
-    P‑VALID: <span id="b-pvalid">0</span><br>
-    P‑RISK: <span id="b-prisk">R0</span></p>
+    <div class="track">
+      <h2>Schiene 2 – Physik</h2>
+      <p>Kräfte, Belastung, Stabilität.<br>
+      <span class="meta">Regel: Tragfähigkeit.</span></p>
+    </div>
+
+    <div class="track">
+      <h2>Schiene 3 – Biologie</h2>
+      <p>Systeme, Überleben, Anpassung.<br>
+      <span class="meta">Regel: Funktionsfähigkeit.</span></p>
+    </div>
+
+    <div class="track">
+      <h2>Schiene 4 – Genetik</h2>
+      <p>Vererbung, Mutation, Kontermination.<br>
+      <span class="meta">Regel: Reinheit & Weitergabe.</span></p>
+    </div>
+
+    <div class="track">
+      <h2>Schiene 5 – Wert / Ethik</h2>
+      <p>Alles Geliehene > 100% Wert.<br>
+      <span class="meta">Regel: Essenzschutz.</span></p>
+    </div>
+
+  </div>
+
+  <!-- WÜRFEL -->
+  <div class="center">
+    <div class="cube" id="cube">
+      <div style="font-weight:bold; letter-spacing:0.1em;">WÜRFEL</div>
+      <ul class="grav-list">
+        <li>Gravitation 1: Struktur</li>
+        <li>Gravitation 2: Kontext</li>
+        <li>Gravitation 3: Essenz</li>
+        <li>Gravitation 4: Realität</li>
+      </ul>
+      <div class="badge ok" id="cube-nc">Essenz: stabil</div>
+    </div>
+  </div>
+
+  <!-- RECHTE SPALTE + RAW-NC -->
+  <div class="right">
+
+    <div class="track">
+      <h2>Vererbbarkeit</h2>
+      <p>Nur Muster, die in allen 4 Gravitationen bestehen, werden vererbt (RAW_SET).</p>
+    </div>
+
+    <div class="track">
+      <h2>Kontermination</h2>
+      <p>Fremdanteile werden erkannt, isoliert und korrigiert (RAW_FIX), bevor sie weitergegeben werden.</p>
+    </div>
+
+    <div class="track">
+      <h2>Dimensionenwechsel</h2>
+      <p>Wenn Schiene ≠ Gravitation → Ebene wechseln.<br>
+      <span class="meta">Regel: Harmoniegrad sichern.</span></p>
+    </div>
+
+    <!-- NC-STATUS -->
+    <div class="track" id="NC-OUT">
+      <h2>NC‑Status</h2>
+
+      <p><span class="meta">Modus A</span><br>
+      BSTAT: <span id="a-bstat">0</span><br>
+      RGRAD: <span id="a-rgrad">0</span><br>
+      HGRAD: <span id="a-hgrad">0</span><br>
+      KGRAD: <span id="a-kgrad">0</span><br>
+      R: <span id="a-risk">R0</span></p>
+
+      <p><span class="meta">Modus B</span><br>
+      P‑REAL: <span id="b-preal">0</span><br>
+      P‑VALID: <span id="b-pvalid">0</span><br>
+      P‑RISK: <span id="b-prisk">R0</span></p>
+    </div>
+
+    <!-- Interaktion -->
+    <div class="track">
+      <h2>Interaktion</h2>
+      <button id="btn-a-test">A‑Test</button>
+      <button id="btn-b-test">B‑Test</button>
+    </div>
+
+  </div>
+
 </div>
 
-<!-- … Scripts unten … -->
+<!-- externe Logik -->
+<script src="cube-core.js"></script>
+<script src="RAWWARBETA.js"></script>
+<script src="verhandlung.js"></script>
 
 </body>
 </html>
