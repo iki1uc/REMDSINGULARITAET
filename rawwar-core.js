@@ -1,12 +1,13 @@
 import { getState, renderRawwar } from "./RAWWAR_CORE.js";
+import { rawwarPulse } from "./rawwar-pulse.js"; // ← WICHTIG
 
-function rawwarKontakt() {
+export function rawwarKontakt() {
   const box = document.getElementById("cube-status");
   const anker = document.getElementById("cube-anker");
 
   if (!box || !anker) return;
 
-  const s = getState(); // ← aktueller RAWWAR-Zustand (1/4–4/4)
+  const s = getState(); // aktueller Zustand
 
   anker.textContent =
     `CUBE_1 → RAW_WAR aktiv → Zustand ${s.IDX}/4`;
@@ -14,6 +15,6 @@ function rawwarKontakt() {
   box.textContent =
     `RAW_WAR LIVE → B:${s.BSTAT} R:${s.RGRAD} H:${s.HGRAD} K:${s.KGRAD}`;
 
-  renderRawwar(); // ← Screen aktualisieren
-  rawwarPulse();  // ← visueller Puls
+  renderRawwar();  // Screen aktualisieren
+  rawwarPulse();   // visueller Puls
 }
