@@ -19,7 +19,9 @@ export function getState(n = getActive()) {
 export function setState(n, bstat, rgrad, hgrad, kgrad) {
     const a = document.getElementById("NC-ANCHOR");
     a.dataset["s" + n] = `${bstat},${rgrad},${hgrad},${kgrad}`;
-}import { rawwarKontakt } from "./rawwar-core.js";
+}
+
+import { rawwarKontakt } from "./rawwar-core.js";
 import { renderRawwar } from "./RAWWAR_CORE.js";
 
 export function next() {
@@ -51,4 +53,3 @@ export function prev() {
 
     return s;
 }
-
