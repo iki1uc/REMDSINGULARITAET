@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>CUBI1 / RAW-NC Maske</title>
+  <title>RAW-NC Maske / CUBI1</title>
   <style>
     body {
       background:#000;
@@ -10,9 +10,10 @@
       font-family: monospace;
       padding:20px;
     }
-    #NC-OUT {
+    .block {
       border:1px solid #0f0;
       padding:10px;
+      margin-bottom:20px;
       max-width:260px;
     }
     .label { color:#888; }
@@ -20,18 +21,25 @@
 </head>
 <body>
 
-  <!-- RAW-NC MASKE: 4 Zustände von Anfang an definiert -->
-  <div id="NC-OUT">
-    <span class="label">BSTAT:</span> <span id="o-bstat">0</span><br>
-    <span class="label">RGRAD:</span> <span id="o-rgrad">0</span><br>
-    <span class="label">HGRAD:</span> <span id="o-hgrad">0</span><br>
-    <span class="label">KGRAD:</span> <span id="o-kgrad">0</span><br>
-    <span class="label">R:</span> <span id="o-risk">R0</span>
+  <!-- NC-A = Zustand A (Modus 1) -->
+  <div id="NC-A" class="block">
+    <span class="label">BSTAT:</span> <span id="a-bstat">0</span><br>
+    <span class="label">RGRAD:</span> <span id="a-rgrad">0</span><br>
+    <span class="label">HGRAD:</span> <span id="a-hgrad">0</span><br>
+    <span class="label">KGRAD:</span> <span id="a-kgrad">0</span><br>
+    <span class="label">R:</span> <span id="a-risk">R0</span>
+  </div>
+
+  <!-- NC-B = Zustand B (Modus 2) -->
+  <div id="NC-B" class="block">
+    <span class="label">P-REAL:</span> <span id="b-preal">0</span><br>
+    <span class="label">P-VALID:</span> <span id="b-pvalid">0</span><br>
+    <span class="label">P-RISK:</span> <span id="b-prisk">R0</span>
   </div>
 
   <script>
-    // RAW-NC: 4 Zustände sind von Anfang an end-definiert
-    const NC = {
+    // Zustand A (Modus 1)
+    const NCA = {
       BSTAT: 0,
       RGRAD: 0,
       HGRAD: 0,
@@ -39,30 +47,55 @@
       R: "R0"
     };
 
-    function ncRender() {
-      document.getElementById("o-bstat").innerText = NC.BSTAT;
-      document.getElementById("o-rgrad").innerText = NC.RGRAD;
-      document.getElementById("o-hgrad").innerText = NC.HGRAD;
-      document.getElementById("o-kgrad").innerText = NC.KGRAD;
-      document.getElementById("o-risk").innerText = NC.R;
+    // Zustand B (Modus 2)
+    const NCB = {
+      PREAL: 0,
+      PVALID: 0,
+      PRISK: "R0"
+    };
+
+    // Render A
+    function renderA() {
+      document.getElementById("a-bstat").innerText = NCA.BSTAT;
+      document.getElementById("a-rgrad").innerText = NCA.RGRAD;
+      document.getElementById("a-hgrad").innerText = NCA.HGRAD;
+      document.getElementById("a-kgrad").innerText = NCA.KGRAD;
+      document.getElementById("a-risk").innerText = NCA.R;
     }
 
-    // Beispiel: Zustand setzen (hier kannst du später deine Logik andocken)
-    function ncSet(bstat, rgrad, hgrad, kgrad, rlabel) {
-      NC.BSTAT = bstat;
-      NC.RGRAD = rgrad;
-      NC.HGRAD = hgrad;
-      NC.KGRAD = kgrad;
-      NC.R = rlabel;
-      ncRender();
+    // Render B
+    function renderB() {
+      document.getElementById("b-preal").innerText = NCB.PREAL;
+      document.getElementById("b-pvalid").innerText = NCB.PVALID;
+      document.getElementById("b-prisk").innerText = NCB.PRISK;
     }
 
-    // Initial: garantiert definierter Zustand
-    ncRender();
+    // Set A
+    function setA(bstat, rgrad, hgrad, kgrad, rlabel) {
+      NCA.BSTAT = bstat;
+      NCA.RGRAD = rgrad;
+      NCA.HGRAD = hgrad;
+      NCA.KGRAD = kgrad;
+      NCA.R = rlabel;
+      renderA();
+    }
 
-    // Demo: nach 2 Sekunden einen echten Zustand einmessen
+    // Set B
+    function setB(preal, pvalid, prisk) {
+      NCB.PREAL = preal;
+      NCB.PVALID = pvalid;
+      NCB.PRISK = prisk;
+      renderB();
+    }
+
+    // Initial garantierte Zustände
+    renderA();
+    renderB();
+
+    // Demo: Live-Update nach 2 Sekunden
     setTimeout(() => {
-      ncSet(75, 100, 50, 25, "R2");
+      setA(75, 100, 50, 25, "R2");
+      setB(80, 60, "R1");
     }, 2000);
   </script>
 
