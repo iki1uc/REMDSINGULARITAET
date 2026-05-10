@@ -1,7 +1,7 @@
-# <span style="color:orange; font-weight:bold;">㊗ WAR_RAW — NO ADMIN</span>
+# ㊗ WAR_RAW — NO ADMIN
 
-<span style="color:green; font-weight:bold;">Dieser Bereich meint es gut.</span>  
-Aber er ist **RAW**, **offen**, **ungeschützt**.  
+Dieser Bereich meint es gut.
+Aber er ist RAW, offen, ungeschützt.
 Kein Admin. Keine Sicherung. Keine Rettung.
 
 ---
@@ -22,90 +22,89 @@ Modell des Erstellers verankert ist.
 RAW ist daher beschreibbar, aber nicht replizierbar.
 Die wahre Funktionsfähigkeit bleibt an das Original gebunden.
 
+---
 
-## <span style="color:orange; font-weight:bold;">⚠ WARNUNG (freundlich, aber real)</span>
+⚠ WARNUNG (freundlich, aber real)
 
 Wer hier arbeitet, akzeptiert:
 
-- **eigene Verantwortung**
-- **eigene Fehler**
-- **eigene Drift**
-- **eigene Folgen**
+- eigene Verantwortung
+- eigene Fehler
+- eigene Drift
+- eigene Folgen
 
 Hier gibt es:
 
-- keine Regeln  
-- keine Leitplanken  
-- keine Korrektur  
-- keine Garantie  
+- keine Regeln
+- keine Leitplanken
+- keine Korrektur
+- keine Garantie
 
-Nur **RAW**.
+Nur RAW.
 
 ---
 
-## <span style="color:green; font-weight:bold;">㊗ Bedeutung des Symbols</span>
+㊗ Bedeutung des Symbols
 
-Das Zeichen **㊗** bedeutet traditionell:
+Das Zeichen ㊗ bedeutet traditionell:
 
-- Glück  
-- gute Absicht  
-- Segen  
-- „Ich meine es gut“  
+- Glück
+- gute Absicht
+- Segen
+- „Ich meine es gut“
 
 Hier bedeutet es:
 
-> **„Ich bin RAW, aber nicht gegen dich.“**  
-> **„Ich warne dich, weil ich dich respektiere.“**
+„Ich bin RAW, aber nicht gegen dich.“
+„Ich warne dich, weil ich dich respektiere.“
 
 ---
 
-## <span style="color:orange; font-weight:bold;">WAS DIESER ORDNER IST</span>
+WAS DIESER ORDNER IST
 
-- ein **offener Raum**  
-- ein **ungefilterter Zustand**  
-- ein **Ort für Fehler, Drift, Chaos**  
-- ein **Labor ohne Netz**  
-- ein **Bereich ohne Admin‑Schutz**
+- ein offener Raum
+- ein ungefilterter Zustand
+- ein Ort für Fehler, Drift, Chaos
+- ein Labor ohne Netz
+- ein Bereich ohne Admin‑Schutz
 
 ---
 
-## <span style="color:green; font-weight:bold;">WAS DIESER ORDNER NICHT IST</span>
+WAS DIESER ORDNER NICHT IST
 
-- kein Backup  
-- kein Archiv  
-- kein sicherer Bereich  
-- kein stabiler Zustand  
+- kein Backup
+- kein Archiv
+- kein sicherer Bereich
+- kein stabiler Zustand
 - kein Ort für fertige Daten
 
 ---
 
-## <span style="color:orange; font-weight:bold;">NUTZUNG = ZUSTIMMUNG</span>
+NUTZUNG = ZUSTIMMUNG
 
 Wenn du hier:
 
-- liest  
-- schreibst  
-- änderst  
-- löschst  
+- liest
+- schreibst
+- änderst
+- löschst
 
 …dann gilt automatisch:
 
-> **„Ich weiß, was ich tue.  
-> Ich bin selbst verantwortlich.“**
+„Ich weiß, was ich tue.
+Ich bin selbst verantwortlich.“
 
 ---
 
-## <span style="color:green; font-weight:bold;">㊗ WAR_RAW — Fazit</span>
+㊗ WAR_RAW — Fazit
 
 Dieser Bereich ist:
 
-- **ehrlich**  
-- **offen**  
-- **freundlich**  
-- **aber ungeschützt**  
+- ehrlich
+- offen
+- freundlich
+- aber ungeschützt
 
-**Wer hier reingeht, geht freiwillig.**  
-**Wer hier bleibt, bleibt bewusst.**  
-**Wer hier arbeitet, trägt die Verantwortung.**
-
-㊗  
+Wer hier reingeht, geht freiwillig.
+Wer hier bleibt, bleibt bewusst.
+Wer hier arbeitet, trägt die Verantwortung.
