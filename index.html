@@ -1,227 +1,120 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>RAWWAR – Minimal Amiga Scene</title>
+<meta charset="UTF-8">
+<title>nanoWÜRFEL – 5 Schienen / 4 Gravitationen / Vererbung</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000018;
-      color: #e0e0ff;
-      font-family: monospace;
-      font-size: 14px;
+<style>
+    body { margin:0; background:#0a0a0d; color:#e6e6e6; font-family:Arial, sans-serif; }
+    h2 { margin:0 0 0.5rem 0; font-size:1rem; letter-spacing:0.05em; }
+    .grid { display:grid; grid-template-columns: 1fr 1.4fr 1fr; height:100vh; }
+
+    .left, .right { padding:1rem; display:flex; flex-direction:column; gap:0.8rem; }
+    .track { border:1px solid #333; padding:0.6rem; border-radius:6px; background:#111218; }
+
+    .center { display:flex; align-items:center; justify-content:center; }
+
+    .cube {
+        width:240px; height:240px;
+        border-radius:14px;
+        border:2px solid #666;
+        background:radial-gradient(circle at top, #1c1c22 0%, #0a0a0d 70%);
+        display:flex; flex-direction:column; justify-content:center; align-items:center;
+        gap:0.5rem;
     }
 
-    /* Szene-Header / Menüführung */
-    #scene-menu {
-      background: #001030;
-      border-bottom: 1px solid #303060;
-      padding: 6px 10px;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
+    .grav-list { list-style:none; padding:0; margin:0; text-align:center; font-size:0.85rem; }
+    .grav-list li { margin:0.2rem 0; }
 
-    #scene-menu span.label {
-      color: #8080ff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .badge { padding:0.2rem 0.5rem; border-radius:999px; border:1px solid #777; font-size:0.75rem; }
+    .ok { color:#7CFC00; }
+    .risk { color:#ffb347; }
+    .fail { color:#ff4b4b; }
 
-    #scene-menu button {
-      background: #000018;
-      color: #e0e0ff;
-      border: 1px solid #404080;
-      padding: 3px 8px;
-      cursor: pointer;
-      font-family: monospace;
-      font-size: 12px;
-    }
-
-    #scene-menu button.active {
-      background: #202060;
-      border-color: #8080ff;
-    }
-
-    /* 3 Räume – minimal */
-    .raum {
-      padding: 10px;
-      border-bottom: 1px solid #202040;
-    }
-
-    #raum-1 { background: #000020; }
-    #raum-2 { background: #000018; }
-    #raum-3 { background: #000010; }
-
-    .raum h2 {
-      margin: 0 0 6px 0;
-      font-size: 13px;
-      color: #a0a0ff;
-      text-transform: uppercase;
-    }
-
-    /* Cube – 3x3 Maske */
-    .cube-mask {
-      display: grid;
-      grid-template-columns: repeat(3, 32px);
-      grid-template-rows: repeat(3, 32px);
-      gap: 3px;
-      margin-top: 6px;
-    }
-
-    .cube-mask .cell {
-      background: #200000;
-      border-radius: 4px;
-      box-shadow: 0 0 4px #000 inset;
-    }
-
-    /* RAWWAR Puls */
-    .rawwar-pulse .cell {
-      background: #ff0000 !important;
-      box-shadow: 0 0 10px #ff0000;
-      transition: 0.15s;
-    }
-
-    /* Log-Bereich */
-    #log {
-      background: #000008;
-      border: 1px solid #202040;
-      padding: 6px;
-      height: 80px;
-      overflow-y: auto;
-      font-size: 12px;
-      white-space: pre;
-    }
-  </style>
+    .meta { font-size:0.75rem; opacity:0.7; margin-top:0.4rem; }
+</style>
 </head>
 
 <body>
 
-  <!-- Szene-Menüführung -->
-  <div id="scene-menu">
-    <span class="label">RAWWAR SCENE</span>
-    <button id="btn-rawwar" class="active">RAW_PULSE</button>
-    <button id="btn-status">STATUS</button>
-    <button id="btn-clear">CLEAR LOG</button>
-  </div>
+<div class="grid">
 
-  <!-- RAUM 1: Status / Kontakt -->
-  <div id="raum-1" class="raum">
-    <h2>Kontakt</h2>
-    <div>Anchor: <span id="cube-anker">–</span></div>
-    <div>Status: <span id="cube-status">–</span></div>
-  </div>
+    <!-- 5 SCHIENEN (Regelachsen) -->
+    <div class="left">
 
-  <!-- RAUM 2: Cube-Szene -->
-  <div id="raum-2" class="raum">
-    <h2>Cube 1 – RAWWAR</h2>
-    <div id="cube1" class="cube-mask">
-      <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-      <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-      <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="track" data-schiene="mathe" data-vererbbar="true">
+            <h2>Schiene 1 – Mathematik</h2>
+            <p>Struktur, Muster, Abweichung.  
+            <span class="meta">Regel: IST–SOLL‑Abgleich.</span></p>
+        </div>
+
+        <div class="track" data-schiene="physik" data-vererbbar="true">
+            <h2>Schiene 2 – Physik</h2>
+            <p>Kräfte, Belastung, Stabilität.  
+            <span class="meta">Regel: Tragfähigkeit.</span></p>
+        </div>
+
+        <div class="track" data-schiene="bio" data-vererbbar="true">
+            <h2>Schiene 3 – Biologie</h2>
+            <p>Systeme, Überleben, Anpassung.  
+            <span class="meta">Regel: Funktionsfähigkeit.</span></p>
+        </div>
+
+        <div class="track" data-schiene="gen" data-vererbbar="true">
+            <h2>Schiene 4 – Genetik</h2>
+            <p>Vererbung, Mutation, Kontermination.  
+            <span class="meta">Regel: Reinheit & Weitergabe.</span></p>
+        </div>
+
+        <div class="track" data-schiene="wert" data-vererbbar="true">
+            <h2>Schiene 5 – Wert / Ethik</h2>
+            <p>Alles Geliehene &gt; 100% Wert.  
+            <span class="meta">Regel: Essenzschutz.</span></p>
+        </div>
+
     </div>
-    <div style="margin-top:6px;font-size:12px;color:#8080ff;">
-      Klick auf den Cube → RAWWAR Pulse
+
+    <!-- WÜRFEL (Dimensionstor + Abgleichkern) -->
+    <div class="center">
+        <div class="cube" id="cube" data-essenz="ok" data-kontermination="none">
+
+            <div style="font-weight:bold; letter-spacing:0.1em;">WÜRFEL</div>
+
+            <ul class="grav-list">
+                <li>Gravitation 1: Struktur</li>
+                <li>Gravitation 2: Kontext</li>
+                <li>Gravitation 3: Essenz</li>
+                <li>Gravitation 4: Realität</li>
+            </ul>
+
+            <div class="badge ok">Essenz: stabil</div>
+        </div>
     </div>
-  </div>
 
-  <!-- RAUM 3: Log / Rückmeldung -->
-  <div id="raum-3" class="raum">
-    <h2>Log</h2>
-    <div id="log"></div>
-  </div>
+    <!-- VERERBUNG & KONTERMINATION -->
+    <div class="right">
 
-  <script>
-    // FUNKTION 1: RAWWAR starten (Kontakt + Status + Log)
-    function rawwarStart() {
-      const anker = document.getElementById("cube-anker");
-      const status = document.getElementById("cube-status");
-      if (!anker || !status) return;
+        <div class="track" data-kontermination="check">
+            <h2>Vererbbarkeit</h2>
+            <p>Nur Muster, die in allen 4 Gravitationen bestehen,  
+            werden vererbt (RAW_SET).</p>
+        </div>
 
-      anker.textContent = "CUBE_1 → RAW_WAR bereit.";
-      status.textContent = "Warte auf Puls…";
+        <div class="track" data-kontermination="active">
+            <h2>Kontermination</h2>
+            <p>Fremdanteile werden erkannt, isoliert und korrigiert (RAW_FIX),  
+            bevor sie weitergegeben werden.</p>
+        </div>
 
-      logLine("RAWWAR_START → Cube 1 bereit.");
-    }
+        <div class="track">
+            <h2>Dimensionenwechsel</h2>
+            <p>Wenn Schiene ≠ Gravitation → Ebene wechseln.  
+            <span class="meta">Regel: Harmoniegrad sichern.</span></p>
+        </div>
 
-    // FUNKTION 2: RAWWAR Pulse (visuell + Status)
-    function rawwarPulse() {
-      const cube = document.getElementById("cube1");
-      const status = document.getElementById("cube-status");
-      if (!cube || !status) return;
+    </div>
 
-      cube.classList.add("rawwar-pulse");
-      status.textContent = "RAW_WAR → Pulse aktiv.";
-
-      logLine("RAWWAR_PULSE → visueller Puls.");
-
-      setTimeout(() => {
-        cube.classList.remove("rawwar-pulse");
-        status.textContent = "RAW_WAR → Pulse beendet.";
-      }, 500);
-    }
-
-    // FUNKTION 3: Szene-Menü / Log-Steuerung
-    function setScene(action) {
-      const btnRaw = document.getElementById("btn-rawwar");
-      const btnStatus = document.getElementById("btn-status");
-      const btnClear = document.getElementById("btn-clear");
-
-      [btnRaw, btnStatus, btnClear].forEach(b => b.classList.remove("active"));
-
-      switch (action) {
-        case "raw":
-          btnRaw.classList.add("active");
-          rawwarPulse();
-          break;
-        case "status":
-          btnStatus.classList.add("active");
-          rawwarStart();
-          break;
-        case "clear":
-          btnClear.classList.add("active");
-          clearLog();
-          break;
-      }
-    }
-
-    // Hilfsfunktionen: Log
-    function logLine(text) {
-      const log = document.getElementById("log");
-      if (!log) return;
-      const ts = new Date().toISOString().split("T")[1].split(".")[0];
-      log.textContent += "[" + ts + "] " + text + "\n";
-      log.scrollTop = log.scrollHeight;
-    }
-
-    function clearLog() {
-      const log = document.getElementById("log");
-      if (!log) return;
-      log.textContent = "";
-    }
-
-    // Events
-    document.getElementById("cube1").addEventListener("click", () => {
-      setScene("raw");
-    });
-
-    document.getElementById("btn-rawwar").addEventListener("click", () => {
-      setScene("raw");
-    });
-
-    document.getElementById("btn-status").addEventListener("click", () => {
-      setScene("status");
-    });
-
-    document.getElementById("btn-clear").addEventListener("click", () => {
-      setScene("clear");
-    });
-
-    // Initial
-    rawwarStart();
-  </script>
+</div>
 
 </body>
 </html>
