@@ -9,13 +9,13 @@ function updateHUDGlow() {
 document.addEventListener("keydown", e => {
 
     if (e.key === "ArrowRight") {
-        next();        // Zustand + RAWWAR + Pulse + Screen
+        next();
     }
 
     if (e.key === "ArrowLeft") {
-        prev();        // Zustand + RAWWAR + Pulse + Screen
+        prev();
     }
 
-    renderNC();        // NC-HUD aktualisieren
-    updateHUDGlow();   // HUD-Farbe setzen
+    renderNC();
+    updateHUDGlow();
 });
