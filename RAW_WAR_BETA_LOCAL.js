@@ -1,37 +1,37 @@
-
-// RAW_WAR_BETA_LOCAL – der rohe Rückmelde‑Cube
-// Keine Harmonie, keine SAFE‑Filter, keine Norm – pure Reaktion
-
-function rawwarKontakt() {
-  const box = document.getElementById("cube-status");
-  const anker = document.getElementById("cube-anker");
-
-  if (!box || !anker) {
-    console.warn("RAW_WAR: UI nicht gefunden.");
-    return;
-  }
-
-  // Charakter: direkt, roh, ungeschönt
-  anker.textContent = "CUBE_1 → RAW_WAR aktiviert → ungefilterte Rückmeldung aktiv.";
-  box.textContent = "RAW_WAR → Reaktion läuft…";
-
-  rawwarPulse();
+export function getActive() {
+    const a = document.getElementById("NC-ANCHOR");
+    const n = a.dataset.active;
+    return parseInt(n);
 }
 
-// Visuelle Reaktion – RAWWAR pulsiert, nicht leuchtet
-function rawwarPulse() {
-  const cube = document.getElementById("cube1");
-  if (!cube) return;
-
-  cube.classList.add("rawwar-pulse");
-
-  setTimeout(() => {
-    cube.classList.remove("rawwar-pulse");
-  }, 600);
+export function getState(n = getActive()) {
+    const a = document.getElementById("NC-ANCHOR");
+    const raw = a.dataset["s" + n].split(",");
+    return {
+        BSTAT: raw[0],
+        RGRAD: raw[1],
+        HGRAD: raw[2],
+        KGRAD: raw[3]
+    };
 }
 
-// RAWWAR liefert eine rohe Systemantwort
-function rawwarFeedback(input) {
-  // keine Norm, keine Filter – nur rohe Rückmeldung
-  return "RAW_WAR_FEEDBACK → " + input.toUpperCase();
+export function setState(n, bstat, rgrad, hgrad, kgrad) {
+    const a = document.getElementById("NC-ANCHOR");
+    a.dataset["s" + n] = `${bstat},${rgrad},${hgrad},${kgrad}`;
+}
+
+export function next() {
+    const a = document.getElementById("NC-ANCHOR");
+    let n = parseInt(a.dataset.active);
+    n = n === 4 ? 1 : n + 1;
+    a.dataset.active = n;
+    return getState(n);
+}
+
+export function prev() {
+    const a = document.getElementById("NC-ANCHOR");
+    let n = parseInt(a.dataset.active);
+    n = n === 1 ? 4 : n - 1;
+    a.dataset.active = n;
+    return getState(n);
 }
