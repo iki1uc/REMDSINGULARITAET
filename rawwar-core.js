@@ -1,5 +1,7 @@
-import { getState, renderRawwar } from "./RAWWAR_CORE.js";
-import { rawwarPulse } from "./rawwar-pulse.js"; // ← WICHTIG
+// rawwar-core.js
+import { getState } from "./RAW_WAR_BETA_LOCAL.js";   // ← KORREKT
+import { renderRawwar } from "./RAWWAR_CORE.js";       // ← KORREKT
+import { rawwarPulse } from "./rawwar-pulse.js";       // ← KORREKT
 
 export function rawwarKontakt() {
   const box = document.getElementById("cube-status");
