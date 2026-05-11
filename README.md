@@ -108,3 +108,5 @@ Dieser Bereich ist:
 Wer hier reingeht, geht freiwillig.
 Wer hier bleibt, bleibt bewusst.
 Wer hier arbeitet, trägt die Verantwortung.
+Dieses Projekt darf frei genutzt werden.
+Bitte nennen Sie den ursprünglichen Autor, wenn Inhalte übernommen werden.
