@@ -1,22 +1,28 @@
 // rawwar-core.js
-import { getState } from "./RAW_WAR_BETA_LOCAL.js";   // ← KORREKT
-import { renderRawwar } from "./RAWWAR_CORE.js";       // ← KORREKT
-import { rawwarPulse } from "./rawwar-pulse.js";       // ← KORREKT
+import { getState } from "./RAW_WAR_BETA_LOCAL.js";
+import { renderRawwar } from "./RAWWAR_CORE.js";
+import { rawwarPulse } from "./rawwar-pulse.js";
 
 export function rawwarKontakt() {
-  const box = document.getElementById("cube-status");
-  const anker = document.getElementById("cube-anker");
+    const box = document.getElementById("cube-status");
+    const anker = document.getElementById("cube-anker");
 
-  if (!box || !anker) return;
+    // Falls HTML noch nicht geladen ist → kein Fehler
+    if (!box || !anker) return;
 
-  const s = getState(); // aktueller Zustand
+    const s = getState(); // aktueller RAWWAR-Zustand
 
-  anker.textContent =
-    `CUBE_1 → RAW_WAR aktiv → Zustand ${s.IDX}/4`;
+    // ANKER-AUSGABE
+    anker.textContent =
+        `CUBE_1 → RAW_WAR aktiv → Zustand ${s.IDX}/4`;
 
-  box.textContent =
-    `RAW_WAR LIVE → B:${s.BSTAT} R:${s.RGRAD} H:${s.HGRAD} K:${s.KGRAD}`;
+    // STATUS-AUSGABE
+    box.textContent =
+        `RAW_WAR LIVE → B:${s.BSTAT} R:${s.RGRAD} H:${s.HGRAD} K:${s.KGRAD}`;
 
-  renderRawwar();  // Screen aktualisieren
-  rawwarPulse();   // visueller Puls
+    // RAWWAR-SCREEN aktualisieren
+    renderRawwar();
+
+    // visueller Puls am Würfel
+    rawwarPulse();
 }
