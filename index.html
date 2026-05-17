@@ -2,15 +2,18 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>nanoWÜRFEL – RAW-NC Fusion</title>
+  <title>nanoWÜRFEL – RAW_NC Fusion</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- HUD (oben rechts) -->
+<div id="NC-HUD" class="r0">NC‑HUD</div>
+
 <div class="grid">
 
-  <!-- 5 SCHIENEN -->
+  <!-- LINKE 5 SCHIENEN -->
   <div class="left">
 
     <div class="track">
@@ -45,80 +48,9 @@
 
   </div>
 
-  <!-- WÜRFEL -->
+  <!-- MITTE: WÜRFEL + RAWWAR -->
   <div class="center">
+
+    <!-- WÜRFEL -->
     <div class="cube" id="cube">
-      <div style="font-weight:bold; letter-spacing:0.1em;">WÜRFEL</div>
-      <ul class="grav-list">
-        <li>Gravitation 1: Struktur</li>
-        <li>Gravitation 2: Kontext</li>
-        <li>Gravitation 3: Essenz</li>
-        <li>Gravitation 4: Realität</li>
-      </ul>
-      <div class="badge ok" id="cube-nc">Essenz: stabil</div>
-    </div>
-  </div>
-
-  <!-- RECHTE SPALTE + RAW-NC -->
-  <div class="right">
-
-    <div class="track">
-      <h2>Vererbbarkeit</h2>
-      <p>Nur Muster, die in allen 4 Gravitationen bestehen, werden vererbt (RAW_SET).</p>
-    </div>
-
-    <div class="track">
-      <h2>Kontermination</h2>
-      <p>Fremdanteile werden erkannt, isoliert und korrigiert (RAW_FIX), bevor sie weitergegeben werden.</p>
-    </div>
-
-    <div class="track">
-      <h2>Dimensionenwechsel</h2>
-      <p>Wenn Schiene ≠ Gravitation → Ebene wechseln.<br>
-      <span class="meta">Regel: Harmoniegrad sichern.</span></p>
-    </div>
-
-    <!-- NC-STATUS -->
-    <div class="track" id="NC-OUT">
-      <h2>NC‑Status</h2>
-
-      <p><span class="meta">Modus A</span><br>
-      BSTAT: <span id="a-bstat">0</span><br>
-      RGRAD: <span id="a-rgrad">0</span><br>
-      HGRAD: <span id="a-hgrad">0</span><br>
-      KGRAD: <span id="a-kgrad">0</span><br>
-      R: <span id="a-risk">R0</span></p>
-
-      <p><span class="meta">Modus B</span><br>
-      P‑REAL: <span id="b-preal">0</span><br>
-      P‑VALID: <span id="b-pvalid">0</span><br>
-      P‑RISK: <span id="b-prisk">R0</span></p>
-    </div>
-
-    <!-- Interaktion -->
-    <div class="track">
-      <h2>Interaktion</h2>
-      <button id="btn-a-test">A‑Test</button>
-      <button id="btn-b-test">B‑Test</button>
-    </div>
-
-  </div>
-
-</div>
-
-<!-- NC-ANCHOR MUSS IM BODY SEIN -->
-<div id="NC-ANCHOR"
-     data-active="1"
-     data-a1="0,0,0,0"
-     data-a2="0,0,0,0"
-     data-a3="0,0,0,0"
-     data-a4="0,0,0,0"
-     style="display:none;"></div>
-
-<!-- externe Logik -->
-<script type="module" src="cube-core.js"></script>
-<script type="module" src="RAW_WAR_BETA_LOCAL.js"></script>
-<script type="module" src="verhandlung-core.js"></script>
-
-</body>
-</html>
+      <div style="font-weight:bold; letter-spacing:0.1em;">
