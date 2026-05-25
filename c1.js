@@ -1,11 +1,13 @@
-<body data-cube="1">
+// c1.js – Cube‑1 Logik
 
-  <div id="mask"></div>
-  <div id="core"></div>
-  <div id="out"></div>
+// Wissenschaftlicher Output für Cube‑1
+function c1_out(ist, soll) {
+  document.getElementById("out").innerHTML = `
+    <div class="out-title">Wissenschaftlicher Output – Cube‑1</div>
+    <div class="out-ist"><b>IST:</b> ${ist}</div>
+    <div class="out-soll"><b>SOLL:</b> ${soll}</div>
+  `;
+}
 
-  <script src="pipe.js"></script>
-  <script src="c1.js"></script>
-  <script src="out1.js"></script>
-
-</body>
+// Beispielstart
+c1_out("Initialisiert", "Bereit für Verbund");
