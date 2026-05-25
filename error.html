@@ -1,1 +1,37 @@
-1
+1<!DOCTYPE html>
+<html lang="de">
+<body style="background:black;color:#0f0;font-family:monospace;padding:30px">
+
+<h1>⚠ SYSTEM-ABBRUCH</h1>
+<p>Ein unerwarteter Zustand wurde erkannt.</p>
+
+<div style="margin-top:20px; padding:10px; border:1px solid #0f0; border-radius:6px;">
+  <h2>Wissenschaftlicher Notanker</h2>
+  <p id="wisdom" style="white-space:pre-line;"></p>
+</div>
+
+<p style="margin-top:30px;">
+  <a href="index.html" style="color:#0f0">zurück zum Cube</a>
+</p>
+
+<script>
+const scientists = [
+  { name: "Albert Einstein", work: "Relativitätstheorie" },
+  { name: "Marie Curie", work: "Radioaktivität" },
+  { name: "Nikola Tesla", work: "Wechselstromsystem" },
+  { name: "Ada Lovelace", work: "erstes Computerprogramm" },
+  { name: "Alan Turing", work: "Turing-Maschine" },
+  { name: "Niels Bohr", work: "Atommodell" },
+  { name: "Rosalind Franklin", work: "DNA-Struktur" },
+  { name: "Richard Feynman", work: "QED" },
+  { name: "Johannes Kepler", work: "Planetenbahnen" }
+];
+
+const pick = scientists[Math.floor(Math.random() * scientists.length)];
+
+document.getElementById("wisdom").textContent =
+  `${pick.name}\nErrungenschaft: ${pick.work}`;
+</script>
+
+</body>
+</html>
