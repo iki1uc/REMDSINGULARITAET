@@ -11,6 +11,7 @@ function c1_out(ist, soll) {
 
 // Beispielstart
 c1_out("Initialisiert", "Bereit für Verbund");
+
 // MODE: A / B / AB
 let MODE = localStorage.getItem("MODE") || "A";
 
@@ -37,12 +38,32 @@ function quertierSlot(a, b) {
   };
 }
 
-// Cube-1 Kernfunktion (neutral, ohne Fremd-Cubes)
+// Gravitation: Zugkraft / Richtung
+function gravitation() {
+  if (MODE === "A") return "→A";
+  if (MODE === "B") return "→B";
+  if (MODE === "AB") return "↔";
+}
+
+// Schiene: Pfad / Regel / Richtung
+function schiene() {
+  return {
+    vorher: PREV,
+    jetzt: "c1",
+    nachher: "c1", // bleibt neutral bis Cube‑2 existiert
+    grav: gravitation()
+  };
+}
+
+// Cube‑1 Kernfunktion (neutral, ohne Fremd‑Cubes)
 function cube1Core(input) {
-  if (MODE === "A") return "A:" + input;
-  if (MODE === "B") return "B:" + input;
+  const s = schiene(); // Schiene einlesen
+
+  if (MODE === "A") return "A:" + input + " " + s.grav;
+  if (MODE === "B") return "B:" + input + " " + s.grav;
+
   if (MODE === "AB") {
     const q = quertierSlot("A:" + input, "B:" + input);
-    return q.AB;
+    return q.AB + " " + s.grav;
   }
 }
