@@ -1,76 +1,16 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>nanoWÜRFEL – RAW_NC Fusion</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- NEU: ALL4ALL ENGINE -->
-  <script src="all4all-engine.js" defer></script>
+  <meta charset="utf-8">
+  <title>Kandidat Index</title>
 </head>
-
 <body>
+  <h1>Kandidat: {{respo}}</h1>
+  <p>Base: {{base}}</p>
+  <p>Line: L(n)=3n</p>
+  <p>Instance: I(n)=base+3n</p>
+  <p>Axis: A(n)=floor(n/3)+1</p>
 
-<!-- HUD -->
-<div id="NC-HUD" class="r0">NC‑HUD</div>
-
-<div class="grid">
-
-  <!-- LINKE 5 SCHIENEN -->
-  <div class="left">
-
-    <div class="track">
-      <h2>Schiene 1 – Mathematik</h2>
-      <p>Struktur, Muster, Abweichung.<br>
-      <span class="meta">Regel: IST–SOLL‑Abgleich.</span></p>
-    </div>
-
-    <div class="track">
-      <h2>Schiene 2 – Physik</h2>
-      <p>Kräfte, Belastung, Stabilität.<br>
-      <span class="meta">Regel: Tragfähigkeit.</span></p>
-    </div>
-
-    <div class="track">
-      <h2>Schiene 3 – Biologie</h2>
-      <p>Systeme, Überleben, Anpassung.<br>
-      <span class="meta">Regel: Funktionsfähigkeit.</span></p>
-    </div>
-
-    <div class="track">
-      <h2>Schiene 4 – Genetik</h2>
-      <p>Vererbung, Mutation, Kontermination.<br>
-      <span class="meta">Regel: Reinheit & Weitergabe.</span></p>
-    </div>
-
-    <div class="track">
-      <h2>Schiene 5 – Wert / Ethik</h2>
-      <p>Alles Geliehene > 100% Wert.<br>
-      <span class="meta">Regel: Essenzschutz.</span></p>
-    </div>
-
-  </div>
-
-  <!-- MITTE: WÜRFEL -->
-  <div class="center">
-    <div class="cube" id="cube">
-      <div style="font-weight:bold; letter-spacing:0.1em;">
-        CUBE‑1
-      </div>
-    </div>
-
-    <!-- NEU: ALL4ALL BUTTON + OUTPUT -->
-    <div style="margin-top:20px;">
-      <button onclick="all4all(1)">4ALL</button>
-      <div id="out1" class="output"></div>
-    </div>
-
-    <p style="margin-top:20px;">
-      <a href="rw.html" style="color:#0f0">8. Weg – RAWWAR</a>
-    </p>
-  </div>
-
-</div>
-
+  <a href="id.html">→ zur ID‑Ansicht</a>
 </body>
 </html>
